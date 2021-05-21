@@ -41,7 +41,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <Button
-            android:id="@+id/EBtn"
+            android:id="@+id/E_Btn"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:text="E"
@@ -50,7 +50,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <Button
-            android:id="@+id/CBtn"
+            android:id="@+id/C1_Btn"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:text="C"
@@ -59,7 +59,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <Button
-            android:id="@+id/DBtn"
+            android:id="@+id/D_Btn"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:text="D"
@@ -86,7 +86,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <Button
-            android:id="@+id/FBtn"
+            android:id="@+id/F_Btn"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:text="F"
