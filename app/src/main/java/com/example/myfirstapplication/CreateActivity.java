@@ -40,7 +40,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playc(View v) {
-        final MediaPlayer cNoteMP = MediaPlayer.create(this, R.raw.cnote);
+        final MediaPlayer cNoteMP = MediaPlayer.create(this, R.raw.cgross);
         cNoteMP.start();
         cNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
 
@@ -52,7 +52,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playd(View v) {
-        final MediaPlayer dNoteMP = MediaPlayer.create(this, R.raw.dnote);
+        final MediaPlayer dNoteMP = MediaPlayer.create(this, R.raw.dgross);
         dNoteMP.start();
         dNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -63,7 +63,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playe(View v) {
-        final MediaPlayer eNoteMP = MediaPlayer.create(this, R.raw.enote);
+        final MediaPlayer eNoteMP = MediaPlayer.create(this, R.raw.egross);
         eNoteMP.start();
         eNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -74,7 +74,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playf(View v) {
-        final MediaPlayer fNoteMP = MediaPlayer.create(this, R.raw.fnote);
+        final MediaPlayer fNoteMP = MediaPlayer.create(this, R.raw.fgross);
         fNoteMP.start();
         fNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -85,7 +85,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playg(View v) {
-        final MediaPlayer gNoteMP = MediaPlayer.create(this, R.raw.gnote);
+        final MediaPlayer gNoteMP = MediaPlayer.create(this, R.raw.ggross);
         gNoteMP.start();
         gNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -98,7 +98,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playa(View v) {
-        final MediaPlayer aNoteMP = MediaPlayer.create(this, R.raw.anote);
+        final MediaPlayer aNoteMP = MediaPlayer.create(this, R.raw.agross);
         aNoteMP.start();
         aNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -111,7 +111,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playh(View v) {
-        final MediaPlayer hNoteMP = MediaPlayer.create(this, R.raw.hnote);
+        final MediaPlayer hNoteMP = MediaPlayer.create(this, R.raw.hgross);
         hNoteMP.start();
         hNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -124,7 +124,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playc2(View v) {
-        final MediaPlayer c2NoteMP = MediaPlayer.create(this, R.raw.c2note);
+        final MediaPlayer c2NoteMP = MediaPlayer.create(this, R.raw.c);
         c2NoteMP.start();
         c2NoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -137,7 +137,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void playd2(View v) {
-        final MediaPlayer d2NoteMP = MediaPlayer.create(this, R.raw.c2note);
+        final MediaPlayer d2NoteMP = MediaPlayer.create(this, R.raw.d);
         d2NoteMP.start();
         d2NoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
