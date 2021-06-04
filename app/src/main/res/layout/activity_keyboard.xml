@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SpeicherBtn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -27,7 +28,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="G"
-            android:onClick= "playg"
             app:backgroundTint="#2196F3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/A_Btn"
@@ -42,7 +42,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="A"
-            android:onClick= "playa"
             app:backgroundTint="#009688"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/H_Btn"
@@ -57,7 +56,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="D"
-            android:onClick= "playd2"
             android:visibility="visible"
             app:backgroundTint="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +71,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="E"
-            android:onClick= "playe"
             app:backgroundTint="#E91E63"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/F_Btn"
@@ -88,7 +85,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="C"
-            android:onClick= "playc"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/D1_Btn"
@@ -103,7 +99,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="D"
-            android:onClick= "playd"
             app:backgroundTint="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/E_Btn"
@@ -117,7 +112,6 @@
             android:layout_marginLeft="1dp"
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
-            android:onClick="playc2"
             android:text="C"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -133,7 +127,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="H"
-            android:onClick= "playh"
             app:backgroundTint="#4CAF50"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/C2_Btn"
@@ -148,7 +141,6 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="F"
-            android:onClick= "playf"
             app:backgroundTint="#673AB7"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/G_Btn"
@@ -161,8 +153,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ToggleButton
             android:id="@+id/rec_tBtn"
@@ -174,6 +168,38 @@
             android:textOn="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/GibNameEinBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Gib den Namen des Lieds ein:"
+            app:layout_constraintEnd_toStartOf="@+id/rec_tBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/NameAusfüllBtn"
+            android:layout_width="259dp"
+            android:layout_height="43dp"
+            android:ems="10"
+            android:hint="z.B.Eine kleine Nachtmusik"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/GibNameEinBtn" />
+
+        <Button
+            android:id="@+id/ScpeicherBtn"
+            android:layout_width="123dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:text="Speichern"
+            app:backgroundTint="#706666"
+            app:layout_constraintStart_toEndOf="@+id/NameAusfüllBtn"
+            tools:layout_editor_absoluteY="40dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
