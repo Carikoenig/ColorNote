@@ -1,9 +1,11 @@
 package com.example.myfirstapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,6 +23,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.sql.Array;
+
 
 public class CreateActivity extends AppCompatActivity {
     //MediaPlayer player;  wir brauchen mehr als nur einen...
@@ -156,12 +161,10 @@ public class CreateActivity extends AppCompatActivity {
 */    }
 
 
-    public void makeAFile() {
-        File Notenblatt = new File(CreateActivity.this.getFilesDir(), "notenblatt.txt");
-        if (!Notenblatt.exists()){
-            Notenblatt.mkdir();
-        }
-        try {
+
+
+
+     /*   try {
             FileOutputStream fOut = openFileOutput("notenblatt.txt", MODE_PRIVATE);
             fOut.write(Integer.parseInt("test"));
             fOut.close();
@@ -173,7 +176,7 @@ public class CreateActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-    }
+    } */
 
 
 
@@ -191,11 +194,11 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "c"+timestr;
-        //fOut.write(NotezumSpeichern.getBytes());
+        sendNote(NotezumSpeichern);
 
 
 
-        Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
     }
 
     public void playd(View v) {
@@ -211,8 +214,10 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "d"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();    }
+        //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
+        }
 
     public void playe(View v) {
         Long time = System.currentTimeMillis();
@@ -226,8 +231,9 @@ public class CreateActivity extends AppCompatActivity {
         });
         String timestr = Long.toString(time);
         String NotezumSpeichern = "e"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(), NotezumSpeichern,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), NotezumSpeichern,Toast.LENGTH_SHORT).show();
     }
 
     public void playf(View v) {
@@ -243,8 +249,9 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "f"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
     }
 
     public void playg(View v) {
@@ -260,8 +267,9 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "g"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -279,9 +287,10 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "a"+timestr;
+        sendNote(NotezumSpeichern);
 
 
-        Toast.makeText(getApplicationContext(),"a"+Long.toString(time),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"a"+Long.toString(time),Toast.LENGTH_SHORT).show();
 
 
     }
@@ -299,8 +308,9 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "h"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(),"h"+Long.toString(time),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"h"+Long.toString(time),Toast.LENGTH_SHORT).show();
 
 
     }
@@ -318,8 +328,9 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "cz"+timestr;
+        sendNote(NotezumSpeichern);
 
-        Toast.makeText(getApplicationContext(),"cz"+Long.toString(time),Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(),"cz"+Long.toString(time),Toast.LENGTH_SHORT).show();
 
 
     }
@@ -337,9 +348,54 @@ public class CreateActivity extends AppCompatActivity {
 
         String timestr = Long.toString(time);
         String NotezumSpeichern = "dz"+timestr;
-
-        Toast.makeText(getApplicationContext(),"dz"+Long.toString(time),Toast.LENGTH_SHORT).show();
+        sendNote(NotezumSpeichern);
+        //Toast.makeText(getApplicationContext(),"dz"+Long.toString(time),Toast.LENGTH_SHORT).show();
     }
+
+    private String fileContents = "";
+
+    public void sendNote(String notezumSpeichern){
+        fileContents = fileContents + notezumSpeichern + "\n";
+
+    }
+
+
+    public void makeAFile() {
+        /*File notenblatt = null;
+        Context context = this;
+
+        try {
+            notenblatt = new File(context.getFilesDir(), "notenblatt.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(notenblatt != null) {
+                try {
+                    notenblatt.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        } */
+
+        Context context = this;
+        String filename = "notenblatt.txt";
+        //String fileContents = ";
+        try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
+            //Toast.makeText(getApplicationContext(),(fileContents.getBytes()).toString(),Toast.LENGTH_SHORT).show();
+            fos.write(fileContents.getBytes());
+            //Toast.makeText(getApplicationContext(),"myfile was made",Toast.LENGTH_SHORT).show();
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+
 
     public void fileSpeichern(View v) throws IOException {
         //fOut.close();
