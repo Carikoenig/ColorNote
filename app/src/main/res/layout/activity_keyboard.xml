@@ -158,48 +158,78 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ToggleButton
-            android:id="@+id/rec_tBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#B60F0F"
-            android:text="ToggleButton"
-            android:textOff="rec"
-            android:textOn="end"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/GibNameEinBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Gib den Namen des Lieds ein:"
-            app:layout_constraintEnd_toStartOf="@+id/rec_tBtn"
+        <FrameLayout
+            android:layout_width="728dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/NameAusfüllBtn"
-            android:layout_width="259dp"
-            android:layout_height="43dp"
-            android:ems="10"
-            android:hint="z.B.Eine kleine Nachtmusik"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/GibNameEinBtn" />
+            <LinearLayout
+                android:id="@+id/NeuAufBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/ScpeicherBtn"
-            android:layout_width="123dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:text="Speichern"
-            app:backgroundTint="#706666"
-            app:layout_constraintStart_toEndOf="@+id/NameAusfüllBtn"
-            tools:layout_editor_absoluteY="40dp" />
+                <Button
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:text="Löschen"
+                    app:backgroundTint="#D10000" />
+
+                <LinearLayout
+                    android:layout_width="301dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/GibNameEinBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Gib den Namen des Lieds ein:" />
+
+                    <EditText
+                        android:id="@+id/NameAusfüllBtn"
+                        android:layout_width="259dp"
+                        android:layout_height="43dp"
+                        android:ems="10"
+                        android:hint="z.B.Eine kleine Nachtmusik"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/ScpeicherBtn"
+                    android:layout_width="121dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Speichern"
+                    app:backgroundTint="#706666" />
+
+                <Button
+                    android:id="@+id/AufnahmeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:text="Neu Aufnehmen"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="#000000"
+                    app:backgroundTint="#BD342A"
+                    app:iconTint="#CFC1C1" />
+
+            </LinearLayout>
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

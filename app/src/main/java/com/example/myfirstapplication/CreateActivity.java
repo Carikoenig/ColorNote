@@ -15,6 +15,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myfirstapplication.R;
@@ -28,8 +29,6 @@ import java.sql.Array;
 
 
 public class CreateActivity extends AppCompatActivity {
-    //MediaPlayer player;  wir brauchen mehr als nur einen...
-
 
 
     @Override
@@ -38,22 +37,37 @@ public class CreateActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_keyboard);
 
-        //Speicher der Aufnahme bis alles aufgenommen ist
-        //int List[] neuesLied = new List[];
 
-        //Was das Start auslöst:
-        Button start_Btn = (Button) findViewById(R.id.rec_tBtn);
+        Button start_Btn = (Button) findViewById(R.id.AufnahmeBtn);
         start_Btn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-                makeAFile();
-                //was am Ende der Aufnahme geschieht:
-                if (getText(R.id.rec_tBtn).equals("end")) {
+                setFileToZero();
 
-                }
             }
         });
+
+        Button speicherBtn = (Button) findViewById(R.id.ScpeicherBtn);
+        speicherBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                makeAFile();
+            }
+
+        });
+
+        Button deleteBtn = (Button) findViewById(R.id.deleteBtn);
+        deleteBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                deleteAFile();
+            }
+
+        });
+
+
+
+
+
 
         Button playc = (Button) findViewById(R.id.C1_Btn);
         playc.setOnClickListener(new View.OnClickListener() {
@@ -354,38 +368,65 @@ public class CreateActivity extends AppCompatActivity {
 
     private String fileContents = "";
 
+    public void setFileToZero() {
+        this.fileContents = "";
+    }
+
     public void sendNote(String notezumSpeichern){
         fileContents = fileContents + notezumSpeichern + "\n";
 
     }
 
 
-    public void makeAFile() {
-        /*File notenblatt = null;
+    public void deleteAFile(){
         Context context = this;
-
-        try {
-            notenblatt = new File(context.getFilesDir(), "notenblatt.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if(notenblatt != null) {
-                try {
-                    notenblatt.close();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüllBtn);
+        String liedname = liedname_et.getText().toString();
+        String filename = null;
+        if(!liedname.matches("")){
+            try {
+                filename = liedname + ".txt";
+                File file = new File(context.getFilesDir(), filename);
+                file.delete();
+                Toast.makeText(getApplicationContext(),filename + " wurde aus den Dateien gelöscht!",Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(),"Von diesem Lied existiert keine Datei!",Toast.LENGTH_LONG).show();
+                e.printStackTrace();
             }
-        } */
+            //warum wirft es keine?
+            /*catch(FileNotFoundException e){
+                Toast.makeText(getApplicationContext(),"Von diesem Lied existiert keine Datei!",Toast.LENGTH_LONG).show();
+
+            }
+             */
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Gib ein welches Lied gelöscht werden soll!",Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+
+
+
+    public void makeAFile() {
 
         Context context = this;
-        String filename = "notenblatt.txt";
+        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüllBtn);
+        String liedname = liedname_et.getText().toString();
+        String filename = null;
+        if(!liedname.matches("")){
+            filename = liedname + ".txt";
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Du musst erst einen Namen eingeben!",Toast.LENGTH_LONG).show();
+        }
         //String fileContents = ";
         try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
             //Toast.makeText(getApplicationContext(),(fileContents.getBytes()).toString(),Toast.LENGTH_SHORT).show();
             fos.write(fileContents.getBytes());
-            //Toast.makeText(getApplicationContext(),"myfile was made",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), liedname + " wurde gespeichert",Toast.LENGTH_SHORT).show();
 
         }
         catch (Exception e){
@@ -395,13 +436,6 @@ public class CreateActivity extends AppCompatActivity {
     }
 
 
-
-
-    public void fileSpeichern(View v) throws IOException {
-        //fOut.close();
-        String hi = "hi";
-
-    }
 
 
     }
