@@ -21,9 +21,9 @@
         android:id="@+id/constraintLayout"
         android:layout_width="704dp"
         android:layout_height="257dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -50,6 +50,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/play_Btn"
             app:layout_constraintVertical_bias="0.142" />
+
+        <Button
+            android:id="@+id/HandbuchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="launchHandbuch"
+            android:text="Handbuch"
+            app:backgroundTint="#671F8E"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_Btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

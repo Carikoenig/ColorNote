@@ -41,17 +41,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*public void play(View view) {
-        if (player == null) {
-            player = MediaPlayer.create(this, R.raw.cnote);
-           /* player.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
-                @Override
-                public void onCompletion(MediaPlayer mp){
-                    stopPlayer();
-                }
-            });
-        }
-    }*/
+    public void launchHandbuch(View v){
+        //launch the Handbuch activity
+        Intent handbuch = new Intent(this, HandbActivity.class);
+        startActivity(handbuch);
+    }
 
 
 }
