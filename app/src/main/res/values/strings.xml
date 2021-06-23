@@ -2,6 +2,6 @@
     <string name="app_name">ColourMusic</string>
     <string name="my_string">Play Music</string>
     <string name="my_string2">Create File</string>
-    <string name="AppName">ColorNote</string>
+    <string name="AppName">ColourMusic</string>
     <string name="handbuch">"Anleitung zum Erstellen eigener Farbnoten mit „Create File“: \n\nSobald man auf „Create File“ im Menü geht, ist die App aufnahmebereit und speichert die Noten ab, die gespielt werden. \n\n„Neu Aufnehmen“: das bisher Gespielte wird ausradiert und man kann einen neuen Aufnahmeversuch starten (z.b. wenn man sich verspielt hat und neu beginnen möchte). \n\n„Speichern“: damit kann man das Gespielte als Datei abspeichern. Vorher muss aber noch ein Name in das Feld eingetragen werden! \n\n„Löschen“: das angegebene Lied wird aus den Dateien gelöscht. Man kann dabei auch Dateien löschen die zu einem vorherigen Zeitpunkt aufgenommen wurden und inzwischen nicht mehr benötigt werden. \n\nACHTUNG: wenn man einen Namen eingibt, der schon in den Dateien vorhanden ist, dann wird diese Datei überschrieben!"  </string>
 </resources>
