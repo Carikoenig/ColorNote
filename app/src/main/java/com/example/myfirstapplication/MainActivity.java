@@ -5,7 +5,6 @@ import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchPlay(View v){
         //launch a new activity (specifically in this case the output mode) when clicking on the Play button
-        Intent gotoKeyboard = new Intent(this, CreateActivity.class);
-        startActivity(gotoKeyboard);
+        Intent gotoKeyboard1 = new Intent(this, PlayActivity.class);
+        startActivity(gotoKeyboard1);
         modus = 10;
     }
 

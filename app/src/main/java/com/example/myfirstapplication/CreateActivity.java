@@ -3,14 +3,6 @@ package com.example.myfirstapplication;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -18,14 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myfirstapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.sql.Array;
 
 
 public class CreateActivity extends AppCompatActivity {
@@ -145,34 +133,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
-/*        //Was das C1 auslöst:
-        Button C1_Btn = (Button) findViewById(R.id.C1_Btn);
-        C1_Btn.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View v) {
-                //bei CreateModus
-                if(MainActivity.modus == 1) {
-                    //ein neues Element wird zum Speicher hinzu gefügt
-                    if(getText(R.id.rec_tBtn).equals("end")){
-                        //neuesLied.
-                    }
-                }
-                //bei PlayModus
-                else if(MainActivity.modus >= 10){
-
-                }
-            }
-        });
-*/    }
+    }
 
 
 
@@ -207,7 +168,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "c"+timestr;
+        String NotezumSpeichern = "cQ"+timestr;
         sendNote(NotezumSpeichern);
 
 
@@ -227,7 +188,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "d"+timestr;
+        String NotezumSpeichern = "dQ"+timestr;
         sendNote(NotezumSpeichern);
 
         //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
@@ -244,7 +205,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "e"+timestr;
+        String NotezumSpeichern = "eQ"+timestr;
         sendNote(NotezumSpeichern);
 
         //Toast.makeText(getApplicationContext(), NotezumSpeichern,Toast.LENGTH_SHORT).show();
@@ -262,7 +223,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "f"+timestr;
+        String NotezumSpeichern = "fQ"+timestr;
         sendNote(NotezumSpeichern);
 
         //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
@@ -280,7 +241,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "g"+timestr;
+        String NotezumSpeichern = "gQ"+timestr;
         sendNote(NotezumSpeichern);
 
         //Toast.makeText(getApplicationContext(),NotezumSpeichern,Toast.LENGTH_SHORT).show();
@@ -300,7 +261,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "a"+timestr;
+        String NotezumSpeichern = "aQ"+timestr;
         sendNote(NotezumSpeichern);
 
 
@@ -321,7 +282,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "h"+timestr;
+        String NotezumSpeichern = "hQ"+timestr;
         sendNote(NotezumSpeichern);
 
         //Toast.makeText(getApplicationContext(),"h"+Long.toString(time),Toast.LENGTH_SHORT).show();
@@ -341,7 +302,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "cz"+timestr;
+        String NotezumSpeichern = "czQ"+timestr;
         sendNote(NotezumSpeichern);
 
        // Toast.makeText(getApplicationContext(),"cz"+Long.toString(time),Toast.LENGTH_SHORT).show();
@@ -361,7 +322,7 @@ public class CreateActivity extends AppCompatActivity {
         });
 
         String timestr = Long.toString(time);
-        String NotezumSpeichern = "dz"+timestr;
+        String NotezumSpeichern = "dzQ"+timestr;
         sendNote(NotezumSpeichern);
         //Toast.makeText(getApplicationContext(),"dz"+Long.toString(time),Toast.LENGTH_SHORT).show();
     }
@@ -380,7 +341,7 @@ public class CreateActivity extends AppCompatActivity {
 
     public void deleteAFile(){
         Context context = this;
-        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüllBtn);
+        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüll_ETXT);
         String liedname = liedname_et.getText().toString();
         String filename = null;
         if(!liedname.matches("")){
@@ -413,7 +374,7 @@ public class CreateActivity extends AppCompatActivity {
     public void makeAFile() {
 
         Context context = this;
-        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüllBtn);
+        EditText liedname_et = (EditText)findViewById(R.id.NameAusfüll_ETXT);
         String liedname = liedname_et.getText().toString();
         String filename = null;
         if(!liedname.matches("")){
