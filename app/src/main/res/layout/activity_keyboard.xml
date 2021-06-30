@@ -57,7 +57,7 @@
             android:layout_marginRight="1dp"
             android:text="D"
             android:visibility="visible"
-            app:backgroundTint="#FF5722"
+            app:backgroundTint="#C3FF6838"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/C2_Btn" />
@@ -113,7 +113,7 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="C"
-            app:backgroundTint="#FFC107"
+            app:backgroundTint="#FFEB3B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/D2_Btn"
             app:layout_constraintStart_toEndOf="@+id/H_Btn" />
