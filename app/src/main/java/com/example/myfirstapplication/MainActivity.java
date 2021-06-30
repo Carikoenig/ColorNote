@@ -5,11 +5,13 @@ import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer player;
+    private Button buttonPlay;
 
     //0 -> Startbildschirm
     //1 -> Create
@@ -22,12 +24,20 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
 
+      /*  buttonPlay = (Button) findViewById(R.id.play_Btn);
+        buttonPlay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                launchPlay(v);
+            }
+        });
+        */
 
     }
 
     public void launchPlay(View v){
         //launch a new activity (specifically in this case the output mode) when clicking on the Play button
-        Intent gotoKeyboard1 = new Intent(this, PlayActivity.class);
+        Intent gotoKeyboard1 = new Intent(this, Play_Activity.class);
         startActivity(gotoKeyboard1);
         modus = 10;
     }

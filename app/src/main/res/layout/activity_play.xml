@@ -2,18 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Vollbild"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants"
-    android:scrollbarAlwaysDrawHorizontalTrack="true"
-    tools:context=".MainActivity">
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
 
+    android:layout_height="match_parent"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    tools:context=".Play_Activity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,6 +154,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
         android:fadingEdge="horizontal"
         android:importantForAccessibility="yes"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -288,6 +289,5 @@
             app:layout_constraintEnd_toStartOf="@+id/G_Btn"
             app:layout_constraintStart_toEndOf="@+id/E_Btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

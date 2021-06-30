@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:onClick="launchHandbuch"
             android:text="Handbuch"
-            app:backgroundTint="#671F8E"
+            app:backgroundTint="#6200EE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
