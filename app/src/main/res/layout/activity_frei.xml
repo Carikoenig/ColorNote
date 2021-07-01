@@ -193,7 +193,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/b"
+                android:id="@+id/bnote"
                 android:layout_width="51dp"
                 android:layout_height="148dp"
                 android:layout_weight="1"
