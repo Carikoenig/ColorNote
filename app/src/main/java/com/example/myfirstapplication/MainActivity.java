@@ -1,5 +1,6 @@
 package com.example.myfirstapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
@@ -24,14 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
 
-      /*  buttonPlay = (Button) findViewById(R.id.play_Btn);
-        buttonPlay.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                launchPlay(v);
-            }
-        });
-        */
 
     }
 
@@ -54,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         //launch the Handbuch activity
         Intent handbuch = new Intent(this, HandbActivity.class);
         startActivity(handbuch);
+    }
+
+    public void launchFrei(View v){
+        //launch the FreiActivity
+        Intent frei = new Intent(this, FreiActivity.class);
+        startActivity(frei);
     }
 
 

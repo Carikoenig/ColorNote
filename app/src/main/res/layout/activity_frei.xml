@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FreiActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="693dp"
+        android:layout_height="252dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/weißLinLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/CBut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#FFC107" />
+
+            <Button
+                android:id="@+id/DBut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#FF5722" />
+
+            <Button
+                android:id="@+id/EBut"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:backgroundTint="#E91E63" />
+
+            <Button
+                android:id="@+id/FBut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/GBut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#2196F3" />
+
+            <Button
+                android:id="@+id/ABut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#009688" />
+
+            <Button
+                android:id="@+id/HBut"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#4CAF50" />
+
+            <Button
+                android:id="@+id/C2But"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#FFEB3B" />
+
+            <Button
+                android:id="@+id/D2But"
+                android:layout_width="wrap_content"
+                android:layout_height="252dp"
+                android:layout_weight="1"
+                app:backgroundTint="#BFFF5722" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="609dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="561dp"
+            android:layout_height="240dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cis"
+                android:layout_width="53dp"
+                android:layout_height="154dp"
+                app:backgroundTint="#000000" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="434dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="152dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dis"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:backgroundTint="#000000" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="123dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="151dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fis"
+                android:layout_width="43dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:backgroundTint="#000000" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="330dp"
+        android:layout_height="267dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout2">
+
+        <LinearLayout
+            android:layout_width="53dp"
+            android:layout_height="144dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/gis"
+                android:layout_width="32dp"
+                android:layout_height="178dp"
+                android:layout_weight="1"
+                app:backgroundTint="#000000" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="252dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout2">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="153dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/b"
+                android:layout_width="51dp"
+                android:layout_height="148dp"
+                android:layout_weight="1"
+                app:backgroundTint="#000000" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="103dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout2">
+
+        <LinearLayout
+            android:layout_width="58dp"
+            android:layout_height="146dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cis2"
+                android:layout_width="wrap_content"
+                android:layout_height="154dp"
+                android:layout_weight="1"
+                app:backgroundTint="#000000"
+                app:iconTint="#000000" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
