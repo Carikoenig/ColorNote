@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
-        <activity android:name=".FreiActivity"></activity>
+        <activity android:name=".NewPlay_Activity"></activity>
+        <activity android:name=".ShowExistingFiles_Activity" />
+        <activity android:name=".FreiActivity" />
         <activity android:name=".Play_Activity" />
         <activity android:name=".keyb_play" />
         <activity android:name=".HandbActivity" />

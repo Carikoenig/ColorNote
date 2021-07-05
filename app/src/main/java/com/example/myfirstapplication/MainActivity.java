@@ -55,5 +55,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(frei);
     }
 
+    public void launchShowExistingFiles(View v){
+        //launch the ExistingFilesActivity
+        Intent existingFiles = new Intent(this, ShowExistingFiles_Activity.class);
+        startActivity(existingFiles);
+    }
+
 
 }
