@@ -27,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    /*
+    //Show existingfiles leitet auf newPlay activity um
     public void launchPlay(View v){
         //launch a new activity (specifically in this case the output mode) when clicking on the Play button
         Intent gotoKeyboard1 = new Intent(this, Play_Activity.class);
         startActivity(gotoKeyboard1);
         modus = 10;
     }
+
+     */
 
     public void launchCreate(View v){
         //launch a new activity (specifically in this case the input mode) when clicking on the Create button

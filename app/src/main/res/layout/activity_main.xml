@@ -27,17 +27,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <Button
-            android:id="@+id/play_Btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:onClick="launchPlay"
-            android:text="@string/my_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
             android:id="@+id/create_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +35,7 @@
             android:text="@string/my_string2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/play_Btn" />
+            app:layout_constraintTop_toBottomOf="@+id/existingFilesBtn" />
 
         <Button
             android:id="@+id/HandbuchBtn"
@@ -75,10 +64,12 @@
             android:id="@+id/existingFilesBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:onClick="launchShowExistingFiles"
-            android:text="Liedübersicht"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="23dp" />
+            android:text="Noten Spielen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
