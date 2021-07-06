@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -20,11 +21,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class NewPlay_Activity extends AppCompatActivity {
+public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
 
     //Screen size
     private int screenWidth;
@@ -51,6 +53,8 @@ public class NewPlay_Activity extends AppCompatActivity {
     private float c2smileyX;
     private float d2smileyX;
 
+    private Handler handlerCoordinator = new Handler();
+    private Timer timerCoordinator = new Timer();
 
     private Handler handlerC = new Handler();
     private Timer timerC = new Timer();
@@ -80,10 +84,18 @@ public class NewPlay_Activity extends AppCompatActivity {
     private Timer timerD2 = new Timer();
 
     boolean ladbar = false;
-    List<String> inhalt;
-    Integer[] farbenliste = new Integer[inhalt.toArray().length];
-    Long[] zeitliste = new Long[inhalt.toArray().length];
-    Long[] zeitliste2 = new Long[inhalt.toArray().length];
+    List<String> inhalt = new ArrayList<String>(){
+        { //testarray
+            add("cQ1625557393841");
+            add("cQ1625557396106");
+            add("cQ1625557398781");
+            add("cQ1625557399580");
+            add("cQ1625557402606");
+
+        }
+    };
+
+
     Long zeitZuBeginn;
 
     @Override
@@ -96,7 +108,9 @@ public class NewPlay_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String liedname = intent.getStringExtra("Lied");
 
-        loadFile(liedname);
+        //loadFile(liedname); Problem mit nullpointer
+        //generateBand(); selbes Problem aber bezug zu long dabei
+        matchTonMitZeit();
 
 
         csmiley = (ImageView)findViewById(R.id.csmiley);
@@ -118,33 +132,35 @@ public class NewPlay_Activity extends AppCompatActivity {
         screenHeight = size.y;
 
         //Move the smiley out of view on thr right end
-        csmiley.setX(2000.0f);
+        csmiley.setX(2200.0f);
         csmiley.setY(0.0f);
 
-        dsmiley.setX(2000.0f);
+        dsmiley.setX(2200.0f);
         dsmiley.setY(0.0f);
 
-        esmiley.setX(2000.0f);
+        esmiley.setX(2200.0f);
         esmiley.setY(0.0f);
 
-        fsmiley.setX(2000.0f);
+        fsmiley.setX(2200.0f);
         fsmiley.setY(0.0f);
 
-        gsmiley.setX(2000.0f);
+        gsmiley.setX(2200.0f);
         gsmiley.setY(0.0f);
 
-        asmiley.setX(2000.0f);
+        asmiley.setX(2200.0f);
         asmiley.setY(0.0f);
 
-        hsmiley.setX(2000.0f);
+        hsmiley.setX(2200.0f);
         hsmiley.setY(0.0f);
 
-        c2smiley.setX(2000.0f);
+        c2smiley.setX(2200.0f);
         c2smiley.setY(0.0f);
 
-        d2smiley.setX(2000.0f);
+        d2smiley.setX(2200.0f);
         d2smiley.setY(0.0f);
 
+        /*
+        //lässt die Smileys in endlosschleife über den Bildschirm wandern
         startTimerC();
         startTimerD();
         startTimerE();
@@ -155,6 +171,8 @@ public class NewPlay_Activity extends AppCompatActivity {
         startTimerC2();
         startTimerD2();
 
+         */
+
 
 
 
@@ -162,6 +180,16 @@ public class NewPlay_Activity extends AppCompatActivity {
 
     }
 
+    //Integer[] farbenliste = new Integer[inhalt.toArray().length];
+    //hart kodiert zum Test
+    Integer[] farbenliste = {1, 2, 3, 4, 1};
+    Long[] zeitliste = new Long[inhalt.toArray().length];
+
+    //hart kodiert zum test
+    Long[] zeitliste2 = {0l, 1265l, 3000l, 5000l, 8000l};
+
+
+    /*
     public void loadFile(String liedname){
         Context context = this;
 
@@ -180,6 +208,8 @@ public class NewPlay_Activity extends AppCompatActivity {
     }
 
     public void loadInhalt(String name) {
+
+        Log.d("444", "loadInhalt: vor buffered");
         try(BufferedReader input = new BufferedReader(new FileReader(name))) {
             boolean end = false;
             while(!end) {
@@ -197,12 +227,17 @@ public class NewPlay_Activity extends AppCompatActivity {
         }
     }
 
+     */
+
+/*
+//Problem mit nullpointer exception in TonStartBerechnen???
 
     public void generateBand() {
 
         for(int i = 0; i < inhalt.toArray().length; i++) {
             String line = inhalt.get(i);
-            String[] parts = line.split("Q");
+            String[] parts = new String[2];
+            parts = line.split("Q");
             //bandlänge muss überarbeitet werden, da bandlänge eig aus dem Abstand zur vorherigen Länge entsteht
             //erstmal 2 Array erstellen, die passenden Daten sind schließlich auf denselben Positionen und können noch gematched werden
             int bandfarbe = getCol(parts[0]);
@@ -218,12 +253,14 @@ public class NewPlay_Activity extends AppCompatActivity {
 
     public void TonStartBerechnen(){
         //der erste Ton beginnt sofort, alle anderen haben ihren Onset versetzt um die Differenz zu Beginn des Programms
-        zeitliste2[0] = 0l;
+        zeitliste2[0] = Long.valueOf(0);
         for(int i = 1; i < zeitliste.length; i++){
             Long zeitlänge = zeitliste[i] - zeitliste[0];
             zeitliste2[i] = zeitlänge;
         }
     }
+
+ */
 
     public void matchTonMitZeit(){
         for(int i = 0; i < zeitliste2.length; i++){
@@ -233,7 +270,7 @@ public class NewPlay_Activity extends AppCompatActivity {
         }
 
     }
-
+/*
     private int getCol(String color) {
         if(color.equals("g")) {
             return 5 ;
@@ -267,39 +304,170 @@ public class NewPlay_Activity extends AppCompatActivity {
         }
     }
 
+ */
+
     public void sendSmiley(int tonhöhe, long tonOnset){
         switch(tonhöhe){
             case 1:
-                sendCWhenTime(tonOnset);
+                //TimeWatcher(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerC();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
+
                 break;
             case 2:
                // sendDWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerD();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
+
                 break;
             case 3:
                 //sendEWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerE();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 4:
                 //sendFWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerF();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 5:
                 //sendGWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerG();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 6:
                 //sendAWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerA();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 7:
                 //sendHWhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerH();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 8:
                 //sendC2WhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerC2();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
             case 9:
                 //sendD2WhenTime(tonOnset);
+                timerCoordinator.schedule(new TimerTask(){
+                    @Override
+                    public void run(){
+                        handlerCoordinator.post(new Runnable(){
+                            @Override
+                            public void run(){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                    startTimerD2();
+
+                                }
+                            }
+                        });
+                    }
+                }, 0, 100);
                 break;
         }
     }
 
-    //kann man timer mehrfach verwenden???
+    /*
+    //kann man timer mehrfach verwenden??? -> algemeinen timer für zeit überwachung nehmen, nicht jeder einzelnXD
     public void sendCWhenTime(Long onset){
         timerC.schedule(new TimerTask(){
            @Override
@@ -317,160 +485,201 @@ public class NewPlay_Activity extends AppCompatActivity {
         }, 0, 50);
     }
 
-    public void startTimerC(){
-        //Start the timer
-        timerC.schedule(new TimerTask(){
+     */
+
+/* //ist jz schon sendSmiley drin
+    public void TimeWatcher(Long onset){
+        timerCoordinator.schedule(new TimerTask(){
             @Override
             public void run(){
-                handlerC.post(new Runnable(){
+                handlerCoordinator.post(new Runnable(){
                     @Override
                     public void run(){
-                        moveCSmiley();
+                        if(zeitZuBeginn + onset <= System.currentTimeMillis()){
+                            startTimerC();
+
+                        }
                     }
                 });
             }
-        }, 0, 5);
+        }, 0, 50);
+    }
+
+ */
+
+    public void startTimerC(){
+        //Start the timer...gibt Problem wenn ichs auf vorgebautem timerC aufrufe("timer already canceled...in move c nicht canceln oder sleep?")
+        // oder immer eigenen timer einbauen
+        Handler handlerCC = new Handler();
+        Timer timerCC = new Timer();
+        timerCC.schedule(new TimerTask(){
+            @Override
+            public void run(){
+                handlerCC.post(new Runnable(){
+                    @Override
+                    public void run(){
+                        moveCSmiley(timerCC);
+                    }
+                });
+            }
+        }, 0, 20);
     }
 
     public void startTimerD(){
-        timerD.schedule(new TimerTask(){
+        Handler handlerDD = new Handler();
+        Timer timerDD = new Timer();
+        timerDD.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerD.post(new Runnable(){
+            handlerDD.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveDSmiley();
+                    moveDSmiley(timerDD);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
     }
     public void startTimerE(){
-        timerE.schedule(new TimerTask(){
+        Handler handlerEE = new Handler();
+        Timer timerEE = new Timer();
+        timerEE.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerE.post(new Runnable(){
+            handlerEE.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveESmiley();
+                    moveESmiley(timerEE);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
 
     }
     public void startTimerF(){
-        timerF.schedule(new TimerTask(){
+        Handler handlerFF = new Handler();
+        Timer timerFF = new Timer();
+        timerFF.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerF.post(new Runnable(){
+            handlerFF.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveFSmiley();
+                    moveFSmiley(timerFF);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
     }
     public void startTimerG(){
-        timerG.schedule(new TimerTask(){
+        Handler handlerGG = new Handler();
+        Timer timerGG = new Timer();
+        timerGG.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerG.post(new Runnable(){
+            handlerGG.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveGSmiley();
+                    moveGSmiley(timerGG);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
     }
     public void startTimerA(){
-        timerA.schedule(new TimerTask(){
+        Handler handlerAA = new Handler();
+        Timer timerAA = new Timer();
+        timerAA.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerA.post(new Runnable(){
+            handlerAA.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveASmiley();
+                    moveASmiley(timerAA);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
     }
     public void startTimerH(){
-        timerH.schedule(new TimerTask(){
+        Handler handlerHH = new Handler();
+        Timer timerHH = new Timer();
+        timerHH.schedule(new TimerTask(){
         @Override
         public void run(){
-            handlerH.post(new Runnable(){
+            handlerHH.post(new Runnable(){
                 @Override
                 public void run(){
-                    moveHSmiley();
+                    moveHSmiley(timerHH);
                 }
             });
         }
-    }, 0, 5);
+    }, 0, 20);
 
     }
 
     public void startTimerC2(){
-        timerC2.schedule(new TimerTask(){
+        Handler handlerCC2 = new Handler();
+        Timer timerCC2 = new Timer();
+        timerCC2.schedule(new TimerTask(){
             @Override
             public void run(){
-                handlerC2.post(new Runnable(){
+                handlerCC2.post(new Runnable(){
                     @Override
                     public void run(){
-                        moveC2Smiley();
+                        moveC2Smiley(timerCC2);
                     }
                 });
             }
-        }, 0, 5);
+        }, 0, 20);
 
     }
 
     public void startTimerD2(){
-        timerD2.schedule(new TimerTask(){
+        Handler handlerDD2 = new Handler();
+        Timer timerDD2 = new Timer();
+        timerDD2.schedule(new TimerTask(){
             @Override
             public void run(){
-                handlerD2.post(new Runnable(){
+                handlerDD2.post(new Runnable(){
                     @Override
                     public void run(){
-                        moveD2Smiley();
+                        moveD2Smiley(timerDD2);
                     }
                 });
             }
-        }, 0, 5);
+        }, 0, 20);
     }
 
 
 
 
-    public void moveCSmiley(){
+    public void moveCSmiley(Timer timerCC){
         //move to the left
         csmileyX = csmileyX - 5;
 
         if(csmiley.getX() + csmiley.getWidth() < 0){
             csmileyX = 2000.0f;
             csmiley.setX(csmileyX);
-            //den timer stoppen sobald über screen seite hinaus
-            timerC.cancel();
+            //den timer stoppen sobald über screen seite hinaus-> gibt probleme
+            timerCC.cancel();
         }
         csmiley.setX(csmileyX);
         csmiley.setY(0.0f);
     }
 
-    public void moveDSmiley(){
+    public void moveDSmiley(Timer timerDD){
         //move to the left
         dsmileyX = dsmileyX - 5;
         if(dsmiley.getX() + dsmiley.getWidth() < 0){
             dsmileyX = 2000.0f;
             dsmiley.setX(dsmileyX);
-            timerD.cancel();
+            timerDD.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -479,13 +688,13 @@ public class NewPlay_Activity extends AppCompatActivity {
 
     }
 
-    public void moveESmiley(){
+    public void moveESmiley(Timer timerEE){
         //move to the left
         esmileyX = esmileyX - 5;
         if(esmiley.getX() + esmiley.getWidth() < 0){
             esmileyX = 2000.0f;
             esmiley.setX(esmileyX);
-            timerE.cancel();
+            timerEE.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -493,7 +702,7 @@ public class NewPlay_Activity extends AppCompatActivity {
         esmiley.setY(0.0f);
     }
 
-    public void moveFSmiley(){
+    public void moveFSmiley(Timer timerFF){
         //move to the left
         fsmileyX = fsmileyX - 5;
         if(fsmiley.getX() + fsmiley.getWidth() < 0){
@@ -507,12 +716,12 @@ public class NewPlay_Activity extends AppCompatActivity {
         fsmiley.setY(0.0f);
     }
 
-    public void moveGSmiley(){
+    public void moveGSmiley(Timer timerGG){
         //move to the left
         gsmileyX = gsmileyX - 5;
         if(gsmiley.getX() + gsmiley.getWidth() < 0){
             gsmileyX = 2000.0f;
-            timerG.cancel();
+            timerGG.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -520,12 +729,12 @@ public class NewPlay_Activity extends AppCompatActivity {
         gsmiley.setY(0.0f);
     }
 
-    public void moveASmiley(){
+    public void moveASmiley(Timer timerAA){
         //move to the left
         asmileyX = asmileyX - 5;
         if(asmiley.getX() + asmiley.getWidth() < 0){
             asmileyX = 2000.0f;
-            timerA.cancel();
+            timerAA.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -533,12 +742,12 @@ public class NewPlay_Activity extends AppCompatActivity {
         asmiley.setY(0.0f);
     }
 
-    public void moveHSmiley(){
+    public void moveHSmiley(Timer timerHH){
         //move to the left
         hsmileyX = hsmileyX - 5;
         if(hsmiley.getX() + hsmiley.getWidth() < 0){
             hsmileyX = 2000.0f;
-            timerH.cancel();
+            timerHH.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -546,12 +755,12 @@ public class NewPlay_Activity extends AppCompatActivity {
         hsmiley.setY(0.0f);
     }
 
-    public void moveC2Smiley(){
+    public void moveC2Smiley(Timer timerCC2){
         //move to the left
         c2smileyX = c2smileyX - 5;
         if(c2smiley.getX() + c2smiley.getWidth() < 0){
             c2smileyX = 2000.0f;
-            timerC2.cancel();
+            timerCC2.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -559,12 +768,12 @@ public class NewPlay_Activity extends AppCompatActivity {
         c2smiley.setY(0.0f);
     }
 
-    public void moveD2Smiley(){
+    public void moveD2Smiley(Timer timerDD2){
         //move to the left
         d2smileyX = d2smileyX - 5;
         if(d2smiley.getX() + d2smiley.getWidth() < 0){
             d2smileyX = 2000.0f;
-            timerD2.cancel();
+            timerDD2.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -574,5 +783,7 @@ public class NewPlay_Activity extends AppCompatActivity {
 
     //teilweise ist bei den move Funktionen noch ein Unterschied darin, ob nach veränderung von X vor dem canceln noch gesettet wird auf x...
     //weiteres Problem: überlappen der timer wenn man sie mehrfach benutzt?
+    //grundlegendes Problem...es gibt nur ein bild von einer note...also kann man auch nur eine auf einmal spielen, was wenn mehrmals dieselbe hintereinander kommt?
+    //_> mehrere Bilder von derselben Note haben und dann quasi aus einem pool abgreifen wenn andere schon in benutzung???
 
 }
