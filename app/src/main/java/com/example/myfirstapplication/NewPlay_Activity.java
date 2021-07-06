@@ -6,11 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Display;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -132,31 +135,31 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
         screenHeight = size.y;
 
         //Move the smiley out of view on thr right end
-        csmiley.setX(2200.0f);
+        csmiley.setX(2000.0f);
         csmiley.setY(0.0f);
 
-        dsmiley.setX(2200.0f);
+        dsmiley.setX(2000.0f);
         dsmiley.setY(0.0f);
 
-        esmiley.setX(2200.0f);
+        esmiley.setX(2000.0f);
         esmiley.setY(0.0f);
 
-        fsmiley.setX(2200.0f);
+        fsmiley.setX(2000.0f);
         fsmiley.setY(0.0f);
 
-        gsmiley.setX(2200.0f);
+        gsmiley.setX(2100.0f);
         gsmiley.setY(0.0f);
 
-        asmiley.setX(2200.0f);
+        asmiley.setX(2100.0f);
         asmiley.setY(0.0f);
 
-        hsmiley.setX(2200.0f);
+        hsmiley.setX(2100.0f);
         hsmiley.setY(0.0f);
 
-        c2smiley.setX(2200.0f);
+        c2smiley.setX(2100.0f);
         c2smiley.setY(0.0f);
 
-        d2smiley.setX(2200.0f);
+        d2smiley.setX(2100.0f);
         d2smiley.setY(0.0f);
 
         /*
@@ -173,6 +176,82 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
 
          */
 
+        Button playc = (Button) findViewById(R.id.CBtn);
+        playc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playc(playc);
+
+
+            }
+        });
+
+        Button playd = (Button) findViewById(R.id.DBtn);
+        playd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playd(playd);
+
+
+            }
+        });
+
+        Button playe = (Button) findViewById(R.id.EBtn);
+        playe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playe(playe);
+            }
+        });
+
+        Button playf = (Button) findViewById(R.id.FBtn);
+        playf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playf(playf);
+            }
+        });
+
+        Button playg = (Button) findViewById(R.id.GBtn);
+        playg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playg(playg);
+            }
+        });
+
+        Button playa = (Button) findViewById(R.id.ABtn);
+        playa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playa(playa);
+            }
+        });
+
+        Button playh = (Button) findViewById(R.id.HBtn);
+        playh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playh(playh);
+            }
+        });
+
+        Button playc2 = (Button) findViewById(R.id.C2Btn);
+        playc2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playc2(playc2);
+            }
+        });
+
+        Button playd2 = (Button) findViewById(R.id.D2Btn);
+        playd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playd2(playd2);
+            }
+        });
+
 
 
 
@@ -182,11 +261,11 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
 
     //Integer[] farbenliste = new Integer[inhalt.toArray().length];
     //hart kodiert zum Test
-    Integer[] farbenliste = {1, 2, 3, 4, 1};
+    Integer[] farbenliste = {1, 3, 4, 5, 1, 3, 4, 5, 1, 3, 4, 5, 3, 1, 3, 2, 5, 7, 8, 9, 5, 7, 8, 9};
     Long[] zeitliste = new Long[inhalt.toArray().length];
 
-    //hart kodiert zum test
-    Long[] zeitliste2 = {0l, 1265l, 3000l, 5000l, 8000l};
+    //hart kodiert zum test...na, wer erkennt es?:)
+    Long[] zeitliste2 = {0l, 1000l, 2000l, 3000l, 8000l, 9000l, 10000l, 11000l, 16000l, 17000l, 18000l, 19000l, 21000l, 23000l, 25000l, 27000l, 33000l, 34000l, 35000l, 36000l, 42000l, 43000l, 44000l, 45000l };
 
 
     /*
@@ -316,7 +395,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerC();
 
                                 }
@@ -334,7 +413,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerD();
 
                                 }
@@ -352,7 +431,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerE();
 
                                 }
@@ -369,7 +448,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerF();
 
                                 }
@@ -386,7 +465,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerG();
 
                                 }
@@ -403,7 +482,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerA();
 
                                 }
@@ -420,7 +499,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerH();
 
                                 }
@@ -437,7 +516,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerC2();
 
                                 }
@@ -454,7 +533,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                         handlerCoordinator.post(new Runnable(){
                             @Override
                             public void run(){
-                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis()){
+                                if(zeitZuBeginn + tonOnset <= System.currentTimeMillis() && zeitZuBeginn + tonOnset + 150 > System.currentTimeMillis() ){
                                     startTimerD2();
 
                                 }
@@ -522,7 +601,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                     }
                 });
             }
-        }, 0, 20);
+        }, 0, 10);
     }
 
     public void startTimerD(){
@@ -538,7 +617,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
     }
     public void startTimerE(){
@@ -554,7 +633,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
 
     }
@@ -571,7 +650,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
     }
     public void startTimerG(){
@@ -587,7 +666,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
     }
     public void startTimerA(){
@@ -603,7 +682,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
     }
     public void startTimerH(){
@@ -619,7 +698,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                 }
             });
         }
-    }, 0, 20);
+    }, 0, 10);
 
     }
 
@@ -636,7 +715,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                     }
                 });
             }
-        }, 0, 20);
+        }, 0, 10);
 
     }
 
@@ -653,7 +732,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
                     }
                 });
             }
-        }, 0, 20);
+        }, 0, 10);
     }
 
 
@@ -663,7 +742,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
         //move to the left
         csmileyX = csmileyX - 5;
 
-        if(csmiley.getX() + csmiley.getWidth() < 0){
+        if(csmileyX < 0){
             csmileyX = 2000.0f;
             csmiley.setX(csmileyX);
             //den timer stoppen sobald über screen seite hinaus-> gibt probleme
@@ -708,7 +787,7 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
         if(fsmiley.getX() + fsmiley.getWidth() < 0){
             fsmileyX = 2000.0f;
             fsmiley.setX(fsmileyX);
-            timerF.cancel();
+            timerFF.cancel();
             //den timer stoppen sobald über screen seite hinaus
 
         }
@@ -785,5 +864,174 @@ public class NewPlay_Activity<zeitliste2> extends AppCompatActivity {
     //weiteres Problem: überlappen der timer wenn man sie mehrfach benutzt?
     //grundlegendes Problem...es gibt nur ein bild von einer note...also kann man auch nur eine auf einmal spielen, was wenn mehrmals dieselbe hintereinander kommt?
     //_> mehrere Bilder von derselben Note haben und dann quasi aus einem pool abgreifen wenn andere schon in benutzung???
+
+    public void playc(View v) {
+        final MediaPlayer cNoteMP = MediaPlayer.create(this, R.raw.cgross);
+        cNoteMP.start();
+        cNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playcis(View v) {
+        final MediaPlayer cisNoteMP = MediaPlayer.create(this, R.raw.cis);
+        cisNoteMP.start();
+        cisNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playd(View v) {
+        final MediaPlayer dNoteMP = MediaPlayer.create(this, R.raw.dgross);
+        dNoteMP.start();
+        dNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
+
+    public void playdis(View v) {
+        final MediaPlayer disNoteMP = MediaPlayer.create(this, R.raw.dis);
+        disNoteMP.start();
+        disNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playe(View v) {
+        final MediaPlayer eNoteMP = MediaPlayer.create(this, R.raw.egross);
+        eNoteMP.start();
+        eNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
+
+    public void playf(View v) {
+        final MediaPlayer fNoteMP = MediaPlayer.create(this, R.raw.fgross);
+        fNoteMP.start();
+        fNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
+
+    public void playfis(View v) {
+        final MediaPlayer fisNoteMP = MediaPlayer.create(this, R.raw.fis);
+        fisNoteMP.start();
+        fisNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playg(View v) {
+        final MediaPlayer gNoteMP = MediaPlayer.create(this, R.raw.ggross);
+        gNoteMP.start();
+        gNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+
+    }
+
+    public void playgis(View v) {
+        final MediaPlayer gisNoteMP = MediaPlayer.create(this, R.raw.gis);
+        gisNoteMP.start();
+        gisNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playa(View v) {
+        final MediaPlayer aNoteMP = MediaPlayer.create(this, R.raw.agross);
+        aNoteMP.start();
+        aNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
+
+    public void playb(View v) {
+        final MediaPlayer bNoteMP = MediaPlayer.create(this, R.raw.ais);
+        bNoteMP.start();
+        bNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+
+
+    public void playh(View v) {
+        final MediaPlayer hNoteMP = MediaPlayer.create(this, R.raw.hgross);
+        hNoteMP.start();
+        hNoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
+
+    public void playc2(View v) {
+        final MediaPlayer c2NoteMP = MediaPlayer.create(this, R.raw.c);
+        c2NoteMP.start();
+        c2NoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+
+    }
+
+    public void playcis2(View v) {
+        final MediaPlayer cis2NoteMP = MediaPlayer.create(this, R.raw.cis2);
+        cis2NoteMP.start();
+        cis2NoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            public void onCompletion(MediaPlayer mp){
+                mp.release();
+            }
+        });
+    }
+
+    public void playd2(View v) {
+        final MediaPlayer d2NoteMP = MediaPlayer.create(this, R.raw.d);
+        d2NoteMP.start();
+        d2NoteMP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
+    }
 
 }
