@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/G_Btn"
+            android:id="@+id/G_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -30,11 +30,11 @@
             android:text="G"
             app:backgroundTint="#2196F3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/A_Btn"
-            app:layout_constraintStart_toEndOf="@+id/F_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/A_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/F_BtnP" />
 
         <Button
-            android:id="@+id/A_Btn"
+            android:id="@+id/A_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -44,11 +44,11 @@
             android:text="A"
             app:backgroundTint="#009688"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/H_Btn"
-            app:layout_constraintStart_toEndOf="@+id/G_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/H_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/G_BtnP" />
 
         <Button
-            android:id="@+id/D2_Btn"
+            android:id="@+id/D2_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -60,10 +60,10 @@
             app:backgroundTint="#C3FF6838"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/C2_Btn" />
+            app:layout_constraintStart_toEndOf="@+id/C2_BtnP" />
 
         <Button
-            android:id="@+id/E_Btn"
+            android:id="@+id/E_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -73,11 +73,11 @@
             android:text="E"
             app:backgroundTint="#E91E63"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/F_Btn"
-            app:layout_constraintStart_toEndOf="@+id/D1_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/F_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/D1_BtnP" />
 
         <Button
-            android:id="@+id/C1_Btn"
+            android:id="@+id/C1_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -87,11 +87,11 @@
             android:text="C"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/D1_Btn"
+            app:layout_constraintEnd_toStartOf="@+id/D1_BtnP"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/D1_Btn"
+            android:id="@+id/D1_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -101,11 +101,11 @@
             android:text="D"
             app:backgroundTint="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/E_Btn"
-            app:layout_constraintStart_toEndOf="@+id/C1_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/E_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/C1_BtnP" />
 
         <Button
-            android:id="@+id/C2_Btn"
+            android:id="@+id/C2_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -115,11 +115,11 @@
             android:text="C"
             app:backgroundTint="#FFEB3B"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/D2_Btn"
-            app:layout_constraintStart_toEndOf="@+id/H_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/D2_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/H_BtnP" />
 
         <Button
-            android:id="@+id/H_Btn"
+            android:id="@+id/H_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -129,11 +129,11 @@
             android:text="H"
             app:backgroundTint="#4CAF50"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/C2_Btn"
-            app:layout_constraintStart_toEndOf="@+id/A_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/C2_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/A_BtnP" />
 
         <Button
-            android:id="@+id/F_Btn"
+            android:id="@+id/F_BtnP"
             android:layout_width="75dp"
             android:layout_height="200dp"
             android:layout_marginStart="1dp"
@@ -143,8 +143,8 @@
             android:text="F"
             app:backgroundTint="#673AB7"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/G_Btn"
-            app:layout_constraintStart_toEndOf="@+id/E_Btn" />
+            app:layout_constraintEnd_toStartOf="@+id/G_BtnP"
+            app:layout_constraintStart_toEndOf="@+id/E_BtnP" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

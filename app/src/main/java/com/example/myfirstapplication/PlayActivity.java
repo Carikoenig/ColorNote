@@ -1,13 +1,8 @@
 package com.example.myfirstapplication;
 
-import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.content.pm.ActivityInfo;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Property;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,8 +20,7 @@ import java.util.List;
 
 public class PlayActivity extends AppCompatActivity {
 
-    String filename = "ton";
-    boolean ladbar = false;
+    String filename = "";
     EditText input_etxt;
     ImageView iv;
     List<String> inhalt;
@@ -38,22 +32,51 @@ public class PlayActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_keyboard_play);
 
-        inhalt.add("cQ2000");
-        inhalt.add("dQ3000");
-        inhalt.add("fQ6000");
-
-
         input_etxt = (EditText) findViewById(R.id.Input_etxt);
 
         Button play_btn = (Button) findViewById(R.id.Play_btn);
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFile();
+                View view = (View) findViewById(R.id.view);
+                view.setBackgroundColor(29);
+                /*
+                String liedname = input_etxt.getText().toString();
+                File file = new File(liedname + ".txt");
+                //prüfen ob ein File gewählt wurde
+                if(input_etxt.getText().toString().isEmpty() || !file.exists()) {
+                    Toast.makeText(getApplicationContext(),"Du musst erst den Namen eines existierenden Files eingeben!",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    filename = liedname + ".txt";
+                    //File Inhalt laden
+                    try(BufferedReader input = new BufferedReader(new FileReader(filename))) {
+                        boolean end = false;
+                        while(!end) {
+                            String line = input.readLine();
+                            inhalt.add(line);
+                            if(line == null) {
+                                end = true;
+                            }
+                        }
+                        //Noten anzeigen
+                        for(int i = 0; i < inhalt.toArray().length; i++) {
+                            String line = inhalt.get(i);
+                            String[] parts = line.split("Q");
+                            int bandfarbe = getCol(parts[0]);
+                            long bandlänge = Long.parseLong(parts[1]);
+                            viewView(bandfarbe, bandlänge);
+                        }
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }*/
             }
         });
 
-        Button playc = (Button) findViewById(R.id.C1_Btn);
+        Button playc = (Button) findViewById(R.id.C1_BtnP);
         playc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +86,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playd = (Button) findViewById(R.id.D1_Btn);
+        Button playd = (Button) findViewById(R.id.D1_BtnP);
         playd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +96,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playe = (Button) findViewById(R.id.E_Btn);
+        Button playe = (Button) findViewById(R.id.E_BtnP);
         playe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +104,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playf = (Button) findViewById(R.id.F_Btn);
+        Button playf = (Button) findViewById(R.id.F_BtnP);
         playf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +112,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playg = (Button) findViewById(R.id.G_Btn);
+        Button playg = (Button) findViewById(R.id.G_BtnP);
         playg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +120,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playa = (Button) findViewById(R.id.A_Btn);
+        Button playa = (Button) findViewById(R.id.A_BtnP);
         playa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +128,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playh = (Button) findViewById(R.id.H_Btn);
+        Button playh = (Button) findViewById(R.id.H_BtnP);
         playh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +136,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playc2 = (Button) findViewById(R.id.C2_Btn);
+        Button playc2 = (Button) findViewById(R.id.C2_BtnP);
         playc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +144,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button playd2 = (Button) findViewById(R.id.D2_Btn);
+        Button playd2 = (Button) findViewById(R.id.D2_BtnP);
         playd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,14 +162,9 @@ public class PlayActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Du musst erst den Namen eines existierenden Files eingeben!",Toast.LENGTH_LONG).show();
         }
         else{
-            ladbar = true;
             filename = liedname + ".txt";
             loadInhalt(filename);
         }
-    }
-
-    private boolean getLadbar() {
-        return ladbar;
     }
 
     public void loadInhalt(String name) {
@@ -181,7 +199,7 @@ public class PlayActivity extends AppCompatActivity {
     private void viewView(int bandfarbe, long bandlänge) {
         if(bandfarbe == 1) {
             View view = (View) findViewById(R.id.changingView);
-            Button btn = (Button) findViewById(R.id.C1_Btn);
+            Button btn = (Button) findViewById(R.id.C1_BtnP);
             int col = btn.getDrawingCacheBackgroundColor();
             view.setBackgroundColor(col);
             try {

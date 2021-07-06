@@ -57,7 +57,7 @@ public class CreateActivity extends AppCompatActivity {
 
 
 
-        Button playc = (Button) findViewById(R.id.C1_Btn);
+        Button playc = (Button) findViewById(R.id.C1_BtnP);
         playc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +67,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playd = (Button) findViewById(R.id.D1_Btn);
+        Button playd = (Button) findViewById(R.id.D1_BtnP);
         playd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +77,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playe = (Button) findViewById(R.id.E_Btn);
+        Button playe = (Button) findViewById(R.id.E_BtnP);
         playe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +85,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playf = (Button) findViewById(R.id.F_Btn);
+        Button playf = (Button) findViewById(R.id.F_BtnP);
         playf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +93,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playg = (Button) findViewById(R.id.G_Btn);
+        Button playg = (Button) findViewById(R.id.G_BtnP);
         playg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +101,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playa = (Button) findViewById(R.id.A_Btn);
+        Button playa = (Button) findViewById(R.id.A_BtnP);
         playa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playh = (Button) findViewById(R.id.H_Btn);
+        Button playh = (Button) findViewById(R.id.H_BtnP);
         playh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +117,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playc2 = (Button) findViewById(R.id.C2_Btn);
+        Button playc2 = (Button) findViewById(R.id.C2_BtnP);
         playc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +125,7 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        Button playd2 = (Button) findViewById(R.id.D2_Btn);
+        Button playd2 = (Button) findViewById(R.id.D2_BtnP);
         playd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
